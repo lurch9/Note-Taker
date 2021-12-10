@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     res.redirect('index.html');
@@ -16,6 +16,8 @@ app.get('/', (req, res) => {
 app.get('/', (req, res) => {
     res.redirect('notes.html');
 });
+
+
 
 app.listen(PORT, () => {
     console.log(`Server Up in Port ${PORT}`);
